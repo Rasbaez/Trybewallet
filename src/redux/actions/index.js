@@ -2,18 +2,18 @@
 export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const ADD_USER = 'ADD_USER';
 
-function addExpenseAction(payload) {
+export function addExpenseAction(payload) {
   return {
     type: ADD_EXPENSE,
     payload,
   };
 }
 
-function addUserAction(payload) {
+export function addUserAction(payload) {
   return {
     type: ADD_USER,
-    payload,
+    email: payload,
   };
 }
 
-export default { addExpenseAction, addUserAction };
+// export default { addExpenseAction, addUserAction };
