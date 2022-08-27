@@ -33,13 +33,12 @@ class Login extends Component {
     event.preventDefault();
     const { userEmail } = this.state;
     const { history, dispatch } = this.props;
-    dispatch(addUserAction(userEmail));
     history.push('./carteira');
+    dispatch(addUserAction(userEmail));
   };
 
   render() {
     const { isDisabled, userEmail, userPassword } = this.state;
-
     return (
 
       <form onSubmit={ this.handleSubmit }>

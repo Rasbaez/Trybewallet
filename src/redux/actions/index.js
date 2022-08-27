@@ -9,11 +9,9 @@ export function addExpenseAction(payload) {
   };
 }
 
-export function addUserAction(payload) {
-  return {
-    type: ADD_USER,
-    email: payload,
-  };
-}
+export const addUserAction = (payload) => ({
+  type: ADD_USER,
+  payload,
+});
 
 // export default { addExpenseAction, addUserAction };
