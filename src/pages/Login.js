@@ -19,7 +19,7 @@ class Login extends Component {
     const passwordLength = 6;
     const validatePassword = userPassword.length >= passwordLength;
     const enableButton = userEmail.includes('@')
-    && userEmail.toLowerCase().includes('.com') && validatePassword;
+      && userEmail.toLowerCase().includes('.com') && validatePassword;
 
     this.setState({ isDisabled: !enableButton });
   };
@@ -34,7 +34,7 @@ class Login extends Component {
     const { userEmail } = this.state;
     const { history, dispatch } = this.props;
     dispatch(addUserAction(userEmail));
-    history.push('./wallet');
+    history.push('./carteira');
   };
 
   render() {
@@ -72,6 +72,7 @@ class Login extends Component {
     );
   }
 }
+export default connect()(Login);
 
 Login.propTypes = {
   dispatch: PropTypes.func.isRequired,
@@ -79,5 +80,3 @@ Login.propTypes = {
     push: PropTypes.func.isRequired,
   }).isRequired,
 };
-
-export default connect()(Login);
