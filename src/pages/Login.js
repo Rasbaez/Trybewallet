@@ -8,18 +8,18 @@ class Login extends Component {
     super();
 
     this.state = {
-      userEmail: '',
+      email: '',
       userPassword: '',
       isDisabled: true,
     };
   }
 
   handleEnableBtn = () => {
-    const { userEmail, userPassword } = this.state;
+    const { email, userPassword } = this.state;
     const passwordLength = 6;
     const validatePassword = userPassword.length >= passwordLength;
-    const enableButton = userEmail.includes('@')
-      && userEmail.toLowerCase().includes('.com') && validatePassword;
+    const enableButton = email.includes('@')
+      && email.toLowerCase().includes('.com') && validatePassword;
 
     this.setState({ isDisabled: !enableButton });
   };
@@ -31,14 +31,15 @@ class Login extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { userEmail } = this.state;
+    const { email } = this.state;
     const { history, dispatch } = this.props;
     history.push('./carteira');
-    dispatch(addUserAction(userEmail));
+    dispatch(addUserAction(email));
   };
 
   render() {
-    const { isDisabled, userEmail, userPassword } = this.state;
+    const { isDisabled, email, userPassword } = this.state;
+    console.log(email);
     return (
 
       <form onSubmit={ this.handleSubmit }>
@@ -46,8 +47,8 @@ class Login extends Component {
           <input
             type="email"
             data-testid="email-input"
-            value={ userEmail }
-            name="userEmail"
+            value={ email }
+            name="email"
             onChange={ this.handleChange }
           />
         </label>

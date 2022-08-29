@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Login from './pages/Login';
 import Wallet from './pages/Wallet';
 import 'bulma/css/bulma.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class App extends Component {
   render() {
