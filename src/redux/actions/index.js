@@ -10,14 +10,14 @@ export function addExpenseAction(payload) {
   };
 }
 
-export const addExpense = (payload) => ({
+export const addExpense = (expense) => ({
   type: ADD_EXPENSE,
-  payload,
+  expense,
 });
 
-export const addUserAction = (payload) => ({
+export const addUserAction = (user) => ({
   type: ADD_USER,
-  payload,
+  user,
 });
 
 const getCurrencies = (currencies) => ({

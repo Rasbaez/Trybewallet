@@ -8,12 +8,12 @@ class Header extends Component {
     // console.log(this.props);
     console.log(expenses);
 
-    const totalconverted = expenses.map((expense) => {
+    const totalconverted = expenses.map((elem) => {
       let value = 0;
-      value = Number(expense.value);
+      value = Number(elem.value);
       let valueConverted = 0;
-      const brCurrency = Object.values(expense.exchangeRates)
-        .find((curr) => curr.code === expense.currency).ask;
+      const brCurrency = Object.values(elem.exchangeRates)
+        .find((curr) => curr.code === elem.currency).ask;
       valueConverted += (value * Number(brCurrency));
 
       return Number(valueConverted.toFixed(2));
@@ -27,8 +27,7 @@ class Header extends Component {
         <p className="notification is-primary" data-testid="email-field">
           {`Email: ${email}`}
           <p data-testid="total-field">
-
-            {`${expenses.length && totalDespenses.toString()}`}
+            {`${expenses.length && totalDespenses}`}
           </p>
           <p data-testid="header-currency-field">BRL</p>
         </p>

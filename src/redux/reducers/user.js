@@ -9,7 +9,7 @@ function userReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
   case ADD_USER: return {
     ...state,
-    email: action.payload,
+    email: action.user,
   };
   default: return state;
   }

@@ -64,9 +64,8 @@ class Login extends Component {
         <button
           type="submit"
           disabled={ isDisabled }
-        // onClick={ this.handleLogin }
         >
-          Entrar
+          Logar
         </button>
       </form>
     );
