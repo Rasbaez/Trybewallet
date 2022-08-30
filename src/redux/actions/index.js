@@ -10,6 +10,11 @@ export function addExpenseAction(payload) {
   };
 }
 
+export const addExpense = (payload) => ({
+  type: ADD_EXPENSE,
+  payload,
+});
+
 export const addUserAction = (payload) => ({
   type: ADD_USER,
   payload,
@@ -33,7 +38,7 @@ export function fetchAPI() {
       const currencies = Object.keys(data);
       const currenciesWithoutUSDT = currencies.filter((currency) => currency !== 'USDT');
       dispatch(getCurrencies(currenciesWithoutUSDT));
-      return currencies;
+      return data;
     } catch (error) {
       // console.log(e.message);
       getCurrenciesFailure(error);
