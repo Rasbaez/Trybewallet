@@ -20,14 +20,13 @@ class Header extends Component {
     });
 
     const totalDespenses = totalconverted.reduce((acc, curr) => acc + curr, 0);
-    // console.log(typeof totalDespenses);
 
     return (
       <header>
         <div className="notification is-primary" data-testid="email-field">
           {`Email: ${email}`}
           <p data-testid="total-field">
-            {`${expenses.length && totalDespenses}`}
+            {`${parseFloat(totalDespenses).toFixed(2)}`}
           </p>
           <p data-testid="header-currency-field">BRL</p>
         </div>
@@ -39,7 +38,19 @@ class Header extends Component {
 
 Header.propTypes = {
   email: PropTypes.string.isRequired,
-  expenses: PropTypes.arrayOf(PropTypes.string).isRequired,
+  expenses: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    value: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    currency: PropTypes.string.isRequired,
+    method: PropTypes.string.isRequired,
+    tag: PropTypes.string.isRequired,
+    exchangeRates: PropTypes.objectOf(PropTypes.shape({
+      code: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      ask: PropTypes.string.isRequired,
+    })).isRequired,
+  })).isRequired,
 };
 
 const mapStateToProps = (state) => ({

@@ -2,6 +2,7 @@
 export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const ADD_USER = 'ADD_USER';
 export const GET_CURRENCIES_OK = 'GET_CURRENCIES_OK';
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 
 export function addExpenseAction(payload) {
   return {
@@ -12,6 +13,11 @@ export function addExpenseAction(payload) {
 
 export const addExpense = (expense) => ({
   type: ADD_EXPENSE,
+  expense,
+});
+
+export const deleteExpense = (expense) => ({
+  type: DELETE_EXPENSE,
   expense,
 });
 

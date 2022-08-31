@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { deleteExpense } from '../redux/actions/index';
 
 class Table extends Component {
+  handleDeleteExpense = ({ target }) => {
+    const { id } = target;
+    const { expenses, dispatch } = this.props;
+
+    const filtredExpenses = expenses.filter((expense) => expense.id !== Number(id));
+    dispatch(deleteExpense(filtredExpenses));
+  };
+
   render() {
     const { expenses } = this.props;
 
@@ -13,24 +22,33 @@ class Table extends Component {
       return convertedValue;
     };
 
-    const rowTableWithData = expenses.map((expense) => (
+    const rowTableWithData = expenses.map(
+      ({ id, description, tag, method, value, currency, exchangeRates }) => (
 
-      <tr key={ expense.id }>
-        <td>{expense.description}</td>
-        <td>{expense.tag}</td>
-        <td>{expense.method}</td>
-        <td>{numberToFixed(expense.value)}</td>
-        <td>{expense.exchangeRates[expense.currency].name}</td>
-        <td>{numberToFixed(expense.exchangeRates[expense.currency].ask)}</td>
-        <td>{converter(expense.value, expense.exchangeRates[expense.currency].ask)}</td>
-        <td>Real</td>
-        <td>
-          <button type="button">Excluir</button>
-          <button type="button">Editar</button>
-        </td>
-      </tr>
+        <tr key={ id }>
+          <td>{description}</td>
+          <td>{tag}</td>
+          <td>{method}</td>
+          <td>{numberToFixed(value)}</td>
+          <td>{exchangeRates[currency].name}</td>
+          <td>{numberToFixed(exchangeRates[currency].ask)}</td>
+          <td>{converter(value, exchangeRates[currency].ask)}</td>
+          <td>Real</td>
+          <td>
+            <button type="button">Editar</button>
+            <button
+              id={ id }
+              type="button"
+              data-testid="delete-btn"
+              onClick={ this.handleDeleteExpense }
+            >
+              Excluir
+            </button>
+          </td>
+        </tr>
 
-    ));
+      ),
+    );
 
     return (
       <div className="table-container">
@@ -53,7 +71,7 @@ class Table extends Component {
           </thead>
 
           <tbody>
-            {expenses && rowTableWithData}
+            {rowTableWithData}
           </tbody>
         </table>
       </div>
@@ -75,6 +93,7 @@ Table.propTypes = {
       ask: PropTypes.string.isRequired,
     })).isRequired,
   })).isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
