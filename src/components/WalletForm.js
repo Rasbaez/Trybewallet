@@ -73,22 +73,21 @@ class WalletForm extends Component {
 
     return (
       <form
-        className="has-background-grey-darker  flex-direction: row has-text-white"
+        className="has-background-grey-darker has-text-white"
         onSubmit={ this.handleSubmit }
       >
-        <div>
-          <label htmlFor="value">
-            Valor:
-            <input
-              onChange={ this.handleChange }
-              value={ value }
-              name="value"
-              data-testid="value-input"
-              className="is-small "
-              type="number"
-            />
-          </label>
-        </div>
+
+        <label htmlFor="value">
+          Valor:
+          <input
+            onChange={ this.handleChange }
+            value={ value }
+            name="value"
+            data-testid="value-input"
+            className="is-small "
+            type="number"
+          />
+        </label>
 
         <label htmlFor="currency">
           Moeda:

@@ -23,14 +23,14 @@ class Header extends Component {
     // console.log(typeof totalDespenses);
 
     return (
-      <header clasName="container">
-        <p className="notification is-primary" data-testid="email-field">
+      <header>
+        <div className="notification is-primary" data-testid="email-field">
           {`Email: ${email}`}
           <p data-testid="total-field">
             {`${expenses.length && totalDespenses}`}
           </p>
           <p data-testid="header-currency-field">BRL</p>
-        </p>
+        </div>
 
       </header>
     );
@@ -39,7 +39,7 @@ class Header extends Component {
 
 Header.propTypes = {
   email: PropTypes.string.isRequired,
-  expenses: PropTypes.objectOf(PropTypes.string).isRequired,
+  expenses: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 const mapStateToProps = (state) => ({

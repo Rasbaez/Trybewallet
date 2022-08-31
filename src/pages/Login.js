@@ -39,7 +39,7 @@ class Login extends Component {
 
   render() {
     const { isDisabled, email, userPassword } = this.state;
-    console.log(email);
+
     return (
 
       <form onSubmit={ this.handleSubmit }>
