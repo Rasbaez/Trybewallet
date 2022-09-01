@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 class Header extends Component {
   render() {
     const { email, expenses } = this.props;
-    // console.log(this.props);
-    console.log(expenses);
 
     const totalconverted = expenses.map((elem) => {
       let value = 0;
@@ -19,14 +17,14 @@ class Header extends Component {
       return Number(valueConverted.toFixed(2));
     });
 
-    const totalDespenses = totalconverted.reduce((acc, curr) => acc + curr, 0);
+    const totalOfExpenses = totalconverted.reduce((acc, curr) => acc + curr, 0);
 
     return (
       <header>
         <div className="notification is-primary" data-testid="email-field">
           {`Email: ${email}`}
           <p data-testid="total-field">
-            {`${parseFloat(totalDespenses).toFixed(2)}`}
+            {`${parseFloat(totalOfExpenses).toFixed(2)}`}
           </p>
           <p data-testid="header-currency-field">BRL</p>
         </div>

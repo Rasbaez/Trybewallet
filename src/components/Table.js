@@ -16,11 +16,7 @@ class Table extends Component {
     const { expenses } = this.props;
 
     const numberToFixed = (strNum) => parseFloat(strNum).toFixed(2);
-
-    const converter = (value, tax) => {
-      const convertedValue = value === '' ? value = '0' : numberToFixed(value) * tax;
-      return convertedValue;
-    };
+    const converter = (value, tax) => numberToFixed(value) * tax;
 
     const rowTableWithData = expenses.map(
       ({ id, description, tag, method, value, currency, exchangeRates }) => (
