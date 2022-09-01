@@ -51,7 +51,6 @@ class Table extends Component {
         <table
           className="table table is-striped is-hoverable is-bordered is-narrow "
         >
-
           <thead>
             <tr>
               <th>Descrição</th>
