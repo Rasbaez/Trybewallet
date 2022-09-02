@@ -3,13 +3,23 @@ export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const ADD_USER = 'ADD_USER';
 export const GET_CURRENCIES_OK = 'GET_CURRENCIES_OK';
 export const DELETE_EXPENSE = 'DELETE_EXPENSE';
+export const EXPENSE_TO_EDIT = 'EXPENSE_TO_EDIT';
+export const EDIT_EXPENSE = 'EDIT_EXPENSE';
 
-export function addExpenseAction(payload) {
-  return {
-    type: ADD_EXPENSE,
-    payload,
-  };
-}
+export const editExpenseAction = (expense) => ({
+  type: EDIT_EXPENSE,
+  expense,
+});
+
+export const expenseToEdit = (idExpense) => ({
+  type: EXPENSE_TO_EDIT,
+  idExpense,
+});
+
+export const addExpenseAction = (payload) => ({
+  type: ADD_EXPENSE,
+  payload,
+});
 
 export const addExpense = (expense) => ({
   type: ADD_EXPENSE,
