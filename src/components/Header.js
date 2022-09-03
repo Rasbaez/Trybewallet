@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import '../Style/Header.scss';
 
 class Header extends Component {
   render() {
@@ -21,12 +22,15 @@ class Header extends Component {
 
     return (
       <header>
-        <div className="notification is-primary" data-testid="email-field">
+
+        <div
+          className="notification is-primary is-flex is-justify-content-space-around "
+          data-testid="email-field"
+        >
           {`Email: ${email}`}
           <p data-testid="total-field">
-            {`${parseFloat(totalOfExpenses).toFixed(2)}`}
+            {`Total das despesas: ${parseFloat(totalOfExpenses).toFixed(2)}  BRL`}
           </p>
-          <p data-testid="header-currency-field">BRL</p>
         </div>
 
       </header>

@@ -1,0 +1,9 @@
+@use 'variables';
+
+.notification{
+  
+    display: flex;
+    justify-content: space-around;
+    padding: 41px;
+    font-size: large;
+}

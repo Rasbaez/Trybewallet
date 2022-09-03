@@ -40,6 +40,7 @@ function walletReducer(state = INITIAL_STATE, action) {
   case EDIT_EXPENSE:
     return {
       ...state,
+      editor: false,
       expenses: [...state.expenses
         .map((exp) => (
           exp.id === state.idToEdit

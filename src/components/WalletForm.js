@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchAPI, addExpense, editExpenseAction } from '../redux/actions/index';
+import '../Style/Wallet.scss';
 
 class WalletForm extends Component {
   constructor() {
@@ -70,24 +71,24 @@ class WalletForm extends Component {
 
     return (
       <form
-        className="has-background-grey-darker has-text-white"
+        className="container-wallet has-background-grey-darker has-text-white is-flex"
         onSubmit={ this.handleSubmit }
       >
 
         <label htmlFor="value">
-          Valor:
+          Valor
           <input
             onChange={ this.handleChange }
             value={ value }
             name="value"
             data-testid="value-input"
-            className="is-small "
+            className="input is-danger"
             type="number"
           />
         </label>
 
         <label htmlFor="currency">
-          Moeda:
+          Moeda
           <div className="select">
             <select
               onChange={ this.handleChange }
@@ -101,7 +102,7 @@ class WalletForm extends Component {
         </label>
 
         <label htmlFor="tag">
-          Tipo:
+          Tipo
           <div className="select">
             <select
               onChange={ this.handleChange }
@@ -119,7 +120,7 @@ class WalletForm extends Component {
         </label>
 
         <label htmlFor="method">
-          Metodo:
+          Metodo
           <div className="select">
             <select
               onChange={ this.handleChange }
@@ -135,7 +136,7 @@ class WalletForm extends Component {
         </label>
 
         <label htmlFor="description">
-          Descrição:
+          Descrição
           <input
             onChange={ this.handleChange }
             value={ description }

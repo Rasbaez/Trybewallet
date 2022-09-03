@@ -1,0 +1,8 @@
+@use 'variables';
+
+.box{
+  display: flex;
+  justify-content: center;
+  background-color: variables.$background-main-color;
+}
+

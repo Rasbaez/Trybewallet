@@ -1,0 +1,12 @@
+$font: 'Epilogue';
+$text-color: #fff;
+$text-secondary: #14121e;
+
+$background-main-color: #FAFAFA;
+$border-radius: 12px;
+
+@mixin flex-container-login {
+  display: flex;
+  justify-content: center;
+
+}

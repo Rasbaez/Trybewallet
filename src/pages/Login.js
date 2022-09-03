@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addUserAction } from '../redux/actions/index';
+import '../Style/Login.scss';
 
 class Login extends Component {
   constructor() {
@@ -41,33 +42,45 @@ class Login extends Component {
     const { isDisabled, email, userPassword } = this.state;
 
     return (
+      <div className="login-container">
+        <form className="box" onSubmit={ this.handleSubmit }>
+          <div className="control has-icons-left has-icons-right">
+            <label className="label" htmlFor="email">
+              Email
+              <input
+                className="input is-small is-rounded"
+                placeholder="Email"
+                type="email"
+                data-testid="email-input"
+                value={ email }
+                name="email"
+                onChange={ this.handleChange }
+              />
 
-      <form onSubmit={ this.handleSubmit }>
-        <label htmlFor="email">
-          <input
-            type="email"
-            data-testid="email-input"
-            value={ email }
-            name="email"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="password">
-          <input
-            value={ userPassword }
-            type="password"
-            name="userPassword"
-            data-testid="password-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <button
-          type="submit"
-          disabled={ isDisabled }
-        >
-          Entrar
-        </button>
-      </form>
+            </label>
+            <label className="label" htmlFor="password">
+              Password
+              <input
+                className="input is-small is-rounded"
+                value={ userPassword }
+                type="password"
+                name="userPassword"
+                data-testid="password-input"
+                onChange={ this.handleChange }
+              />
+            </label>
+            <button
+              className={
+                isDisabled ? 'button is-danger is-small' : 'button is-primary is-small'
+              }
+              type="submit"
+              disabled={ isDisabled }
+            >
+              Entrar
+            </button>
+          </div>
+        </form>
+      </div>
     );
   }
 }
