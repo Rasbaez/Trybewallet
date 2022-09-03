@@ -40,11 +40,11 @@ function walletReducer(state = INITIAL_STATE, action) {
   case EDIT_EXPENSE:
     return {
       ...state,
-      expenses: state.expenses
+      expenses: [...state.expenses
         .map((exp) => (
           exp.id === state.idToEdit
             ? ({ ...exp, ...action.expense }) : ({ ...exp })
-        )),
+        ))],
     };
   default: return state;
   }

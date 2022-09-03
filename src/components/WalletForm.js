@@ -45,13 +45,19 @@ class WalletForm extends Component {
     const currencies = await dispatch(fetchAPI());
     delete currencies.USDT;
 
-    if (!editor) {
+    switch (editor) {
+    case false:
       this.setState({ exchangeRates: { ...currencies } });
       dispatch(addExpense(this.state));
+      break;
+
+    case true:
+      this.setState({ id: idToEdit }, () => {
+        dispatch(editExpenseAction(this.state));
+      });
+      break;
+    default: return null;
     }
-    this.setState({ id: idToEdit }, () => {
-      dispatch(editExpenseAction(this.state));
-    });
     this.handleResetState();
   };
 
