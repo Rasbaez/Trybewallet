@@ -20,12 +20,14 @@ class Table extends Component {
   };
 
   render() {
-    const { expenses } = this.props;
+    const { expenses, editor } = this.props;
+
+    const isDanger = 'button is-danger is-small';
+    const isPrimary = 'button is-primary is-small';
+    const isWarning = 'button is-warning is-small';
 
     const numberToFixed = (strNum) => parseFloat(strNum).toFixed(2);
-    const converter = (value, tax) => numberToFixed(value) * tax;
-
-    // const rowWithData =
+    const converter = (value, tax) => (numberToFixed(value) * tax).toFixed(2);
 
     return (
 
@@ -50,9 +52,12 @@ class Table extends Component {
         <tbody>
           {
             expenses.map(
-              ({ id, description, tag, method, value, currency, exchangeRates }) => (
+              (
+                { id, description, tag, method, value, currency, exchangeRates },
+                index,
+              ) => (
 
-                <tr key={ id }>
+                <tr key={ index }>
                   <td>{description}</td>
                   <td>{tag}</td>
                   <td>{method}</td>
@@ -63,14 +68,20 @@ class Table extends Component {
                   <td>Real</td>
                   <td>
                     <button
+                      className={
+                        !editor ? isPrimary
+                          : isWarning
+                      }
                       type="button"
                       data-testid="edit-btn"
                       id={ id }
                       onClick={ this.handleEditExpense }
+
                     >
                       Editar
                     </button>
                     <button
+                      className={ isDanger }
                       id={ id }
                       type="button"
                       data-testid="delete-btn"
@@ -85,7 +96,6 @@ class Table extends Component {
           }
         </tbody>
       </table>
-
     );
   }
 }
@@ -102,9 +112,11 @@ Table.propTypes = {
       code: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       ask: PropTypes.string.isRequired,
+
     })).isRequired,
   })).isRequired,
   dispatch: PropTypes.func.isRequired,
+  editor: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({

@@ -15,6 +15,7 @@ class WalletForm extends Component {
       currency: 'USD',
       method: 'Dinheiro',
       tag: 'Alimentação',
+      isDisabled: true,
     };
   }
 
@@ -50,6 +51,7 @@ class WalletForm extends Component {
     case false:
       this.setState({ exchangeRates: { ...currencies } });
       dispatch(addExpense(this.state));
+
       break;
 
     case true:
@@ -63,15 +65,19 @@ class WalletForm extends Component {
   };
 
   render() {
-    const { value, description, currency, method, tag } = this.state;
+    const { value, description, currency, method, tag, isDisabled } = this.state;
     const { currencies, editor } = this.props;
+
+    console.log(isDisabled);
+
     const currenciesOption = currencies.map((curr, index) => (
       <option key={ index }>{curr}</option>
     ));
 
     return (
+
       <form
-        className="container-wallet has-background-grey-darker has-text-white is-flex"
+        className="container-form has-background-grey-darker has-text-white is-flex"
         onSubmit={ this.handleSubmit }
       >
 
@@ -82,7 +88,7 @@ class WalletForm extends Component {
             value={ value }
             name="value"
             data-testid="value-input"
-            className="input is-danger"
+            className="input is-danger is-required"
             type="number"
           />
         </label>
@@ -147,13 +153,16 @@ class WalletForm extends Component {
             name="description"
           />
         </label>
+
         <button
           type="submit"
-          className="button is-info"
+          className={ !editor ? 'button is-info' : 'button is-danger' }
+          disabled={ !value.length && isDisabled }
         >
           {!editor ? 'Adicionar despesa' : 'Editar despesa'}
         </button>
       </form>
+
     );
   }
 }

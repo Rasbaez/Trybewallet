@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addUserAction } from '../redux/actions/index';
 import '../Style/Login.scss';
+import logo from '../Style/image/logo.png';
 
 class Login extends Component {
   constructor() {
@@ -42,9 +43,13 @@ class Login extends Component {
     const { isDisabled, email, userPassword } = this.state;
 
     return (
-      <div className="login-container">
-        <form className="box" onSubmit={ this.handleSubmit }>
-          <div className="control has-icons-left has-icons-right">
+      <div className="logo-wallet">
+        <img src={ logo } alt="imagem da trybe wallet" />
+        <form className="login-container" onSubmit={ this.handleSubmit }>
+          <div
+            className="control has-icons-left has-icons-right"
+            style={ { padding: '23px' } }
+          >
             <label className="label" htmlFor="email">
               Email
               <input

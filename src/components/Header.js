@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import '../Style/Header.scss';
+import icon from '../Style/image/icon.png';
 
 class Header extends Component {
   render() {
@@ -24,9 +25,11 @@ class Header extends Component {
       <header>
 
         <div
-          className="notification is-primary is-flex is-justify-content-space-around "
+          className="user-data notification is-primary
+          is-flex is-justify-content-space-around"
           data-testid="email-field"
         >
+          <img src={ icon } alt="icone de carteira" />
           {`Email: ${email}`}
           <p data-testid="total-field">
             {`Total das despesas: ${parseFloat(totalOfExpenses).toFixed(2)}  BRL`}

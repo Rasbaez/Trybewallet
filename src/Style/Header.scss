@@ -1,9 +1,20 @@
 @use 'variables';
 
-.notification{
-  
-    display: flex;
-    justify-content: space-around;
-    padding: 41px;
-    font-size: large;
+
+.wallet-container{
+height: 800px;
+
+    div{
+    
+        display: flex;
+        align-items: center;
+        padding: '40px';
+        
+        img{
+            width: 100px;
+           
+        }
+    }
 }
+
+

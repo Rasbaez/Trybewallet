@@ -4,6 +4,8 @@ $text-secondary: #14121e;
 
 $background-main-color: #FAFAFA;
 $border-radius: 12px;
+$family-sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+
 
 @mixin flex-container-login {
   display: flex;

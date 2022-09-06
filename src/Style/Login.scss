@@ -1,8 +1,12 @@
 @use 'variables';
 
-.box{
-  display: flex;
-  justify-content: center;
-  background-color: variables.$background-main-color;
+.logo-wallet{
+  height: 900px;
+
+    img{
+      width: 500px;
+      margin-left: 10px;
+      margin-left: 50%;
+    }
 }
 

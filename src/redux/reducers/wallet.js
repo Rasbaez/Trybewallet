@@ -20,11 +20,14 @@ function walletReducer(state = INITIAL_STATE, action) {
     return {
       ...state,
       currencies: action.currencies,
+
     };
+
   case ADD_EXPENSE:
     return {
       ...state,
       expenses: [...state.expenses, action.expense],
+
     };
   case DELETE_EXPENSE:
     return {
