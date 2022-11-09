@@ -1,10 +1,4 @@
-# :bloqueio_obras: README em construção :bloqueio_obras:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:atenção: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você;
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+Projeto feito na Trybe, conta com uma aplicação onde podemos adicionar gastos, e fazer a conversão da moeda desejada para BRL.
+
+O projeto foi feito em React, ultilizando REDUX e para controlar o estado global da aplicação e a estilização foi ultilizado o BULMA.
+
